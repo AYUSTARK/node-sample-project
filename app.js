@@ -15,7 +15,7 @@ const longs = [79.05215669638855, 81.42380232778993, 80.9446470589452, 78.309293
 io.on('connection', (socket) => {
     console.log(socket.id + " connected")
 
-    socket.on('receive', (location) => {
+    socket.on('receive', (location, callback) => {
         console.log("RECEIVED LOCATION", location)
         console.log("Latitude",location.latitude)
         console.log("Longigtude",location.longitude)
