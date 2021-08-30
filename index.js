@@ -52,7 +52,7 @@ app.post('/login', (req, res) => {
 })
 
 
-const port = 3001
+const port = process.env.PORT || 3001
 server.listen(port, () => {
     console.log(`Server is up and running on ${port}!`)
 })
