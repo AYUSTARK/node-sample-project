@@ -8,5 +8,5 @@ npm i
 
 To run the server
  ```
- node app.js
+ node index.js
  ```
