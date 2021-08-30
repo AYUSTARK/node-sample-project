@@ -1,11 +1,12 @@
 const express = require('express')
 const socketio = require('socket.io')
 const http = require('http')
-
+const cors = require('cors')
 const app = express()
 const server = http.createServer(app)
 const io = socketio(server)
 // Parses the data as json
+app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
@@ -18,7 +19,7 @@ io.on('connection', (socket) => {
     socket.on('receive', (location, callback) => {
         console.log("RECEIVED LOCATION", location)
         console.log("Latitude",location.latitude)
-        console.log("Longigtude",location.longitude)
+        console.log("Longitude",location.longitude)
         callback("received")
     })
 
