@@ -16,21 +16,21 @@ const longs = [79.05215669638855, 81.42380232778993, 80.9446470589452, 78.309293
 io.on('connection', (socket) => {
     console.log(socket.id + " connected")
 
-    socket.on('receive', (location, callback) => {
+    socket.on('receive', (location) => {
         console.log("RECEIVED LOCATION", location)
         console.log("Latitude",location.latitude)
         console.log("Longitude",location.longitude)
-        callback("received")
+        // callback("received")
     })
 
-    socket.on('send', (callback) => {
+    socket.on('send', () => {
         const random = Math.floor(Math.random() * lats.length)
         const location = {
             latitude: lats[random],
             longitude: longs[random]
         }
         console.log("SENDING LOCATION", location)
-        callback(location.latitude, location.longitude)
+        // callback(location.latitude, location.longitude)
     })
 
     socket.on('disconnect', (reason) => {
